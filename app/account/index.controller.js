@@ -2,7 +2,7 @@
   'use strict';
 
 	angular
-	  .module('piinterest')
+	  .module('app')
 		.controller('Account.IndexController', Controller);
 
 	function Controller($window, UserService, FlashService) {
@@ -22,7 +22,7 @@
 		}
 
 		function saveUser(){
-		  userServiceUpdate(vm.user)
+		  UserService.Update(vm.user)
 			  .then(function() {
 				  FlashService.Success('User updated');
 				})
