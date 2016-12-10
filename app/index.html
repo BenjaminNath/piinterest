@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Piinterest</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../public/stylesheets/style.css">
+</head>
+<body ng-app="piinterest">
+	
+	<div class="form-container">
+		<ul class="form-tabs">
+      <li class="tab active"><a ui-sref="login">Log In</a></li>
+      <li class="tab"><a ui-sref="signUp">Sign Up</a></li>
+      
+    </ul>
+
+		<div class="form-tabs">
+			<div ui-view></div>
+		</div>
+	</div>
+
+	<!-- external script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="
+https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>

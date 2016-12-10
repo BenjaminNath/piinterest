@@ -2,28 +2,32 @@
   'use strict';
 
 	angular
-	  .module('app', ['ui.router'])
+	  .module('piinterest', ['ui.router'])
 	  .config(config)
 		.run(run);
   
 	function config($stateProvider, $urlRouterProvider) {
 	  //default route
-		$urlRouterProvider.otherwise("/");
+		$urlRouterProvider.otherwise("/home");
 	  
 		$stateProvider
 		  .state('home', {
 			  url: '/',
 				templateUrl: 'home/index.html',
 				controller: 'home.IndexController',
-				controllerAs: 'vm',
-				data: { activeTab: 'home' }
+				controllerAs: 'vm'
 			})
-			.state('account', {
-			  url: '/account', 
-				templateUrl: 'account/index.html',
-				controller: 'Account.IndexController',
-				controllerAs: 'vm',
-				data: { activeTab: 'account' }
+			.state('login', {
+			  url: '/login', 
+				templateUrl: 'home/login.html',
+				controller: 'loginController',
+				controllerAs: 'vm'
+			})
+			.state('signUp', {
+				url: '/signUp',
+				templateUrl: 'home/signUp.html',
+				controller: 'signUpController',
+				controllerAs: 'vm'
 			});
 	}
 	function run($http, $rootScope, $window) {
@@ -35,13 +39,14 @@
 		});
 	}
 	//manually bootstrap angular after the JWT token is retrieved from the server
-	$(function () {
-	  //get JWT toekn from server
-		$.get('/app/token', function(token) {
-		  window.jwtToken = token;
+	// $(function () {
+	//   //get JWT toekn from server
+	// 	$.get('/app/token', function(token) {
+	// 	  window.jwtToken = token;
 
-			angular.bootstrap(document, ['app']);
-		});
-	});
+	// 		angular.bootstrap(document, ['app']);
+	// 	});
+	// });
+
 })();
 
